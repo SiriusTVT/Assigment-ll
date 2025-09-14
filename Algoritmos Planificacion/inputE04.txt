@@ -1,0 +1,7 @@
+Proceso   AT   BT   Queue   Priority
+Alpha     0    9    1       1
+Beta      1    4    2       3
+Gamma     3    2    1       5
+Delta     4    6    3       2
+Epsilon   7    5    2       4
+Zeta      8    3    1       6

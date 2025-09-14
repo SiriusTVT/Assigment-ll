@@ -1,0 +1,6 @@
+Proceso   AT   BT   Queue   Priority
+Job1      0    7    1       2
+Job2      2    3    2       1
+Job3      4    5    1       4
+Job4      6    2    3       3
+Job5      8    4    2       5

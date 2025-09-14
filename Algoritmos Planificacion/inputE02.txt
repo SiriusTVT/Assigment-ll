@@ -1,0 +1,5 @@
+Proceso   AT   BT   Queue   Priority
+P1        0    5    1       3
+P2        1    3    2       1
+P3        2    8    1       2
+P4        3    6    3       4
