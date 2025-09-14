@@ -1,6 +1,6 @@
 Proceso   AT   BT   Queue   Priority
-A         0    6    1       1
-B         0    10   2       3
-C         0    3    3       5
-D         0    19   2       3
+A         0    6    1       5
+B         0    9    1       4
+C         0    10   2       3
+D         0    15   2       3
 E         0    8    3       2
