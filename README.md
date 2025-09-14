@@ -57,64 +57,153 @@ g++ -o psjf psjf.cpp
 g++ -o rr rr.cpp
 ```
 
-### Compilación Local
+### Compilación Local (Windows)
 
 ```bash
 cd "Algoritmos Planificacion"
 
-# Compilar cada algoritmo
+# Compilar cada algoritmo individualmente
 g++ -o fifo.exe fifo.cpp
 g++ -o sjf.exe sjf.cpp
 g++ -o psjf.exe psjf.cpp
 g++ -o rr.exe rr.cpp
+
+# O compilar todos de una vez
+g++ -o fifo.exe fifo.cpp && g++ -o sjf.exe sjf.cpp && g++ -o psjf.exe psjf.cpp && g++ -o rr.exe rr.cpp
+```
+
+### Compilación Local (Linux/macOS)
+
+```bash
+cd "Algoritmos Planificacion"
+
+# Compilar cada algoritmo individualmente
+g++ -o fifo fifo.cpp
+g++ -o sjf sjf.cpp
+g++ -o psjf psjf.cpp
+g++ -o rr rr.cpp
+
+# O compilar todos de una vez
+g++ -o fifo fifo.cpp && g++ -o sjf sjf.cpp && g++ -o psjf psjf.cpp && g++ -o rr rr.cpp
 ```
 
 ## Ejecución de los Algoritmos
 
+### Proceso básico para ejecutar cualquier algoritmo:
+
+1. **Elegir archivo de entrada** (copiar a procesos.txt)
+2. **Compilar** el algoritmo deseado  
+3. **Ejecutar** el programa
+
 ### FCFS (First Come, First Served)
 ```bash
-./fifo
-# o en Windows: fifo.exe
+# Compilar
+g++ -o fifo.exe fifo.cpp
+
+# Ejecutar
+./fifo         # Linux/Docker
+fifo.exe       # Windows
 ```
 
 ### SJF (Shortest Job First)
 ```bash
-./sjf
-# o en Windows: sjf.exe
+# Compilar
+g++ -o sjf.exe sjf.cpp
+
+# Ejecutar
+./sjf          # Linux/Docker
+sjf.exe        # Windows
 ```
 
 ### PSJF (Preemptive Shortest Job First)
 ```bash
-./psjf
-# o en Windows: psjf.exe
+# Compilar
+g++ -o psjf.exe psjf.cpp
+
+# Ejecutar
+./psjf         # Linux/Docker
+psjf.exe       # Windows
 ```
 
 ### Round Robin
 ```bash
-./rr
-# o en Windows: rr.exe
-# Se solicitará ingresar el quantum
+# Compilar
+g++ -o rr.exe rr.cpp
+
+# Ejecutar (se solicitará el quantum)
+./rr           # Linux/Docker
+rr.exe         # Windows
+
+# Ejecutar con quantum predefinido
+echo "3" | ./rr        # Linux/Docker
+echo "3" | rr.exe      # Windows
 ```
 
-### Usando diferentes archivos de entrada
+## Usando Diferentes Archivos de Entrada
 
-Para usar un archivo específico, simplemente cámbialo por `procesos.txt`:
+### Método Manual (Recomendado)
+
+Para usar cualquier archivo de entrada específico:
 
 ```bash
-# Ejemplo con inputE02.txt
+# 1. Copiar el archivo deseado como procesos.txt
 copy inputE02.txt procesos.txt
-./rr
-# Ingresa quantum (ej: 2)
 
-# Ejemplo con inputE03.txt  
-copy inputE03.txt procesos.txt
-./fifo
+# 2. Compilar el algoritmo (solo la primera vez o si cambió el código)
+g++ -o rr.exe rr.cpp
 
-# Restaurar archivo original
-copy procesos_backup.txt procesos.txt
+# 3. Ejecutar
+echo "2" | rr.exe
 ```
 
-O crea una versión modificada que lea directamente el archivo deseado.
+### Ejemplos Completos
+
+**Ejemplo 1: Round Robin con inputE04.txt y quantum 3**
+```bash
+copy inputE04.txt procesos.txt
+g++ -o rr.exe rr.cpp
+echo "3" | rr.exe
+```
+
+**Ejemplo 2: FCFS con inputE03.txt**
+```bash
+copy inputE03.txt procesos.txt
+g++ -o fifo.exe fifo.cpp
+fifo.exe
+```
+
+**Ejemplo 3: SJF con inputE02.txt**
+```bash
+copy inputE02.txt procesos.txt
+g++ -o sjf.exe sjf.cpp
+sjf.exe
+```
+
+**Ejemplo 4: PSJF con inputE05.txt**
+```bash
+copy inputE05.txt procesos.txt
+g++ -o psjf.exe psjf.cpp
+psjf.exe
+```
+
+### Compilación por lotes (Opcional)
+
+Para compilar todos los algoritmos de una vez:
+
+```bash
+# Windows
+g++ -o fifo.exe fifo.cpp && g++ -o sjf.exe sjf.cpp && g++ -o psjf.exe psjf.cpp && g++ -o rr.exe rr.cpp
+
+# Linux/Docker
+g++ -o fifo fifo.cpp && g++ -o sjf sjf.cpp && g++ -o psjf psjf.cpp && g++ -o rr rr.cpp
+```
+
+### Notas Importantes
+
+- **No es necesario recompilar** cada vez, solo cuando cambies el código fuente
+- Los archivos ejecutables (.exe) se pueden eliminar y regenerar cuando sea necesario
+- Todos los algoritmos leen automáticamente el archivo `procesos.txt`
+- Para Round Robin, el quantum se solicita durante la ejecución
 
 ## Ejemplo de Uso
 
